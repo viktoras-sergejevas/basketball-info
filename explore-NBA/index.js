@@ -2,33 +2,28 @@ document.addEventListener("DOMContentLoaded", function () {
   const carousel = document.querySelector(".carousel");
   const items = document.querySelectorAll(".carousel-item");
   const totalItems = items.length;
-  const itemWidth = 100 / 6; // Each item takes up 16.666% of the container width
+  const itemWidth = 100 / 6;
   let index = 0;
 
-  // Function to move the carousel to the next slide
   function moveToNextSlide() {
     index++;
 
-    // If we've reached the last set of images, reset to the first set of images
+
     if (index >= totalItems - 6) {
       index = 0;
-      // Optionally, reset the transform immediately so there's no jump
-      carousel.style.transition = "none"; // Disable transition for a moment
+      carousel.style.transition = "none";
       carousel.style.transform = `translateX(0)`;
 
-      // Trigger a reflow to reset the transition smoothly after a short delay
       setTimeout(() => {
-        carousel.style.transition = "transform 0.5s ease-in-out"; // Re-enable transition
-        moveToNextSlide(); // Move to the next slide immediately after reset
+        carousel.style.transition = "transform 0.5s ease-in-out";
+        moveToNextSlide(); 
       }, 50);
     } else {
-      // Move to the next slide by changing the translateX property
-      const offset = -(index * itemWidth); // Shift by 16.666% for each image
+      const offset = -(index * itemWidth);
       carousel.style.transform = `translateX(${offset}%)`;
     }
   }
 
-  // Start the autoplay: move to the next slide every 3 seconds
   setInterval(moveToNextSlide, 3000);
 });
 
