@@ -33,7 +33,7 @@ const back = document.querySelector("#back");
 
 const mainDisplay = document.querySelector(".mainDisplay");
 const footer = document.querySelector(".footer");
-footer.innerHTML = `<p>${new Date().getFullYear()}</p>`;
+footer.innerHTML = `<p>©${new Date().getFullYear()}</p>`;
 
 const easternConference = [
   "ATL",
